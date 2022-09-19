@@ -1,0 +1,27 @@
+삼각형이 되기 위해서는 가장 긴 막대와 긴 막대를 제외한 나머지 두개의 막대의 합이
+긴 막대보다는 커야한다 삼각형 판별하기 가장 긴 막대를 구해야한다 (max)
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function solution(a, b, c) {
+        let answer = "YES",
+          max;
+        let sum = a + b + c;
+        ///가장 긴 막대를 구해야한다 (max)
+        if (a > b) max = a;
+        else max = b;
+        if (c > max) max = c;
+        ///가장 큰값이 max 에 저장되었다!
+        if (sum - max <= max) answer = "NO";
+        ///세 막대의 합에서 max를 뺸 값보다 작거나 같으면 삼각형이 될수 없다!
+        return answer;
+      }
+
+      console.log(solution(6, 9, 11));
+    </script>
+  </body>
+</html>
