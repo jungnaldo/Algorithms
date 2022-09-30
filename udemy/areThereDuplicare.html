@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    Frequency Counter / Multiple Pointers - areThereDuplicates Implement a
+    function called, areThereDuplicates which accepts a variable number of
+    arguments, and checks whether there are any duplicates among the arguments
+    passed in. You can solve this using the frequency counter pattern OR the
+    multiple pointers pattern. Examples: areThereDuplicates(1, 2, 3) // false
+    areThereDuplicates(1, 2, 2) // true areThereDuplicates('a', 'b', 'c', 'a')
+    // true Restrictions: Time - O(n) Space - O(n) Bonus: Time - O(n log n)
+    Space - O(1)
+    <script>
+      function areThereDuplicates(...args) {
+        // Two pointers
+        //배열로 만든다
+        args.sort((a, b) => a > b);
+        //Two Pointers 지정
+        let start = 0;
+        let next = 1;
+        //next가 args의 길이보다 작다는 가정 하에서 반복
+        while (next < args.length) {
+          //민약 start인덱스와 next인덱스 가 같으면 true를 반환하는데
+          if (args[start] === args[next]) {
+            return true;
+          }
+          //start 와 next는 1씩 증가한다
+          start++;
+          next++;
+        }
+        //앞뒤의 인덱스가 같지 않다면 false를 반환한다.
+        return false;
+      }
+      areThereDuplicates(1, 2, 3, 3, 2);
+    </script>
+  </body>
+</html>
