@@ -1,0 +1,35 @@
+Multiple Pointers Pattern - averagePair 매개변수로는 array 와 average가
+주어지고,array 를 검사해서 두 수를 더한 평균이 average 와 같으면, 통과! (true)
+이고, 같은 average 가 없다면  false 이다. array는 정렬되어 있다
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function averagePair(arr, avg) {
+        //포인터를 만들어서 이동시키며 풀어보았다.
+        let start = 0;
+        let last = arr.length - 1;
+
+        while (start < last) {
+          let average = (arr[start] + arr[last]) / 2; //현재의 맨 앞과 맨뒤의 합의 평균을 구하는 변수 average생성
+          if (average === avg) {
+            //산출해낸 변수값과 매개변수의 평균이 같다면
+            return true; //true를 반환
+          } else if (average > avg) {
+            //만약 산출해낸 변수 값이 매개변수 평균보다 크다면
+            last--; //뒤에서 1씩 줄이며 true가 나오는지 확인한다.
+          } else {
+            // 매개변수 평균보다 산출해낸 변수 값이 더 크다면
+            start++; //앞에서 1씩 더해서 비교하여 true가 나오는지 확인한다
+          }
+        }
+        return false; //true가 안나온다면 이 함수는 false를 반환한다.
+      }
+      averagePair([1, 2, 3], 2.5);
+    </script>
+  </body>
+</html>
