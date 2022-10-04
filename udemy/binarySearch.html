@@ -1,0 +1,29 @@
+<html>
+  이진검색의 알고리즘
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      function binarySearch(arr, elm) {
+        let start = 0;
+        let end = arr.length - 1;
+        let middle = Math.floor((start + end) / 2);
+        ///우리가 여기에서 하려는 작업은 계속 연산을 하면서
+        ///중간점을 선택하는 과정을 반복한다
+        //arr[middle]가 우리가 찾는 값과 같지 않으면 루프는 계속 작동할 것이다.
+        while (arr[middle] != elm && start <= end) {
+          if (elm < arr[middle]) {
+            end = middle - 1;
+          } else {
+            start = middle + 1;
+          }
+          middle = Math.floor((start + end) / 2);
+        }
+        return arr[middle] === elm ? middle : -1;
+      }
+      binarySearch([2, 5, 6, 9, 13, 15, 28, 30], 15);
+    </script>
+  </body>
+</html>
