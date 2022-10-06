@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>출력결과</title>
+  </head>
+  <body>
+    <script>
+      //loop over the longer string
+      //loop over the shorter string
+      //if the chracters don't match ,break out f the inner loop
+      //if characters do match ,keep going
+      //if you complete the inner loop and find a match, increment the count of matches
+      //return the count
+      function naiveSearch(long, short) {
+        //제일 먼저 수도코드에 나와있는것처럼 루프를 만든다
+        //긴문자를 반복하는 루프와 짧은 문자열을 반복하는 중첩내부루프가 필요하다.
+        var count = 0;
+        for (var i = 0; i < long.length; i++) {
+          for (var j = 0; j < short.length; j++) {
+            console.log(long[i + j], short[j]);
+            if (short[j] !== long[i + j]) {
+              //내부루프는 break를 하면 다시 0 되어진다 , 즉 l에서 다시 시작하지만 외부 루프 i는 다음 문자로 넘어간다
+              console.log("break");
+              break;
+            }
+            //j가 위 과정속에서 short의 마지막 인덱스까지 도달하면 카운트 변수에 1씩 증가 시킨다
+            if (j === short.length - 1) {
+              count++;
+            }
+          }
+        }
+
+        return count;
+      }
+      naiveSearch("lorie loled", "l");
+    </script>
+  </body>
+</html>
