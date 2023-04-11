@@ -21,3 +21,5 @@ for (let i = 0; i < n; i++) {
   if (max < arr[i]) max = arr[i];
 }
 console.log(min, max);
+
+////////////////////////////////////
